@@ -2,7 +2,7 @@
 
 This repo contains solidity files extracted from the core `aura-contracts` repo for public review.
 
-All test suite, infrastructure, and deployment scripts are excluded.
+All test suite, infrastructure, and deployment scripts are excluded. Files found in the `convex-platform` submodule have been edited directly in place to preserve files layout and make parsing the diffs easier for security purposes.
 
 ### Getting Started
 
@@ -22,7 +22,7 @@ convex files. You can run this server with.
 yarn diff:server
 ```
 
-And then go to localhost:3000. The diff output ignores changes to comments and just shows the code diff.
+And then go to `localhost:3000`. The diff output ignores changes to comments and just shows the code diff.
 
 ### Files in the diff
 
@@ -30,11 +30,9 @@ And then go to localhost:3000. The diff output ignores changes to comments and j
     -   `platform/contracts/contracts` -> `convex-platform/contracts/contracts`
 -   original convex code -> new aura versions
     -   `contracts/Aura.sol` -> `convex-platform/contracts/contracts/Cvx.sol`
-    -   `contracts/AuraBalRewardPool.sol` -> `convex-platform/contracts/contracts/cvxRewardPool.sol`
     -   `contracts/AuraClaimZap.sol` -> `convex-platform/contracts/contracts/ClaimZap.sol`
     -   `contracts/AuraLocker.sol` -> `convex-platform/contracts/contracts/CvxLocker.sol`
     -   `contracts/AuraMath.sol` -> `convex-platform/contracts/contracts/interfaces/BoringMath.sol`
-    -   `contracts/AuraMerkleDrop.sol` -> `convex-platform/contracts/contracts/MerkleAirdrop.sol`
     -   `contracts/AuraStakingProxy.sol` -> `convex-platform/contracts/contracts/CvxStakingProxy.sol`
     -   `contracts/AuraVestedEscrow.sol` -> `convex-platform/contracts/contracts/VestedEscrow.sol`
     -   `contracts/ExtraRewardsDistributor.sol` -> `convex-platform/contracts/contracts/vlCvxExtraRewardDistribution.sol`

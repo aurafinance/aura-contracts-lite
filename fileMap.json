@@ -1,0 +1,35 @@
+[
+  {
+    "aura": "Aura.sol",
+    "convex": "Cvx.sol"
+  },
+  {
+    "aura": "AuraClaimZap.sol",
+    "convex": "ClaimZap.sol"
+  },
+  {
+    "aura": "AuraLocker.sol",
+    "convex": "CvxLocker.sol"
+  },
+  {
+    "aura": "AuraMath.sol",
+    "convex": "interfaces/BoringMath.sol"
+  },
+  {
+    "aura": "AuraStakingProxy.sol",
+    "convex": "CvxStakingProxy.sol"
+  },
+  {
+    "aura": "AuraVestedEscrow.sol",
+    "convex": "VestedEscrow.sol"
+  },
+  {
+    "aura": "ClaimFeesHelper.sol",
+    "convex": "ClaimVecrvFees.sol"
+  },
+  {
+    "aura": "ExtraRewardsDistributor.sol",
+    "convex": "vlCvxExtraRewardDistribution.sol"
+  }
+]
+

@@ -24,10 +24,6 @@
     "convex": "VestedEscrow.sol"
   },
   {
-    "aura": "ClaimFeesHelper.sol",
-    "convex": "ClaimVecrvFees.sol"
-  },
-  {
     "aura": "ExtraRewardsDistributor.sol",
     "convex": "vlCvxExtraRewardDistribution.sol"
   }

@@ -1,8 +1,10 @@
 ## Aura Contracts
 
-This repo contains solidity files extracted from the core `aura-contracts` repo for public review.
+This repo contains solidity files extracted from the core `aura-contracts` repo for public review. All test suite, infrastructure, and deployment scripts are excluded.
 
-All test suite, infrastructure, and deployment scripts are excluded. Files found in the `convex-platform` submodule have been edited directly in place to preserve files layout and make parsing the diffs easier for security purposes.
+Modified files from the `Convex` protocol are in the `convex-platform` submodule. This strategy has been taken to preserve the file formatting to make diff'ing the files easier.
+
+Original files from the `Convex` protocol are linked in the `platform` submodule.
 
 ### Getting Started
 

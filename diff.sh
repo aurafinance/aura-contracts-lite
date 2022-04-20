@@ -6,7 +6,7 @@ then
 fi
 
 echo "[*] generating diff for platform (original) -> convex-platform (aura updates)"
-git diff --no-index platform/contracts/contracts convex-platform/contracts/contracts > "$diff_folder/convex.diff"
+git diff --diff-filter=ACM --no-index platform/contracts/contracts convex-platform/contracts/contracts > "$diff_folder/convex.diff"
 
 if [ ! -f "fileMap.json" ] 
 then 
@@ -24,7 +24,7 @@ while IFS=$"\n" read -r c; do
     aura=$(echo "$c" | ./node_modules/node-jq/bin/jq -r '.aura' | sed 's/\.sol//')
     file_name="$( basename $convex):$(basename $aura)"
     echo "    |- generating $file_name";
-    git diff --no-index "platform/contracts/contracts/$convex.sol" "contracts/$aura.sol" > "$diff_folder/$file_name.diff"
+    git diff --diff-filter=ACM --no-index "platform/contracts/contracts/$convex.sol" "contracts/$aura.sol" > "$diff_folder/$file_name.diff"
 done
 
 exit 0;

@@ -2,11 +2,20 @@
 
 This repo contains solidity files extracted from the core `aura-contracts` repo for public review. All test suite, infrastructure, and deployment scripts are excluded.
 
-Modified files from the `Convex` protocol are in the `convex-platform` submodule. This strategy has been taken to preserve the file formatting to make diff'ing the files easier.
+Modified files from the `Convex` protocol are in the `convex-platform` submodule. This strategy has been taken to preserve the file formatting to make diff'ing the files easier (See diff [here](https://github.com/aurafinance/convex-platform/pull/23/files?file-filters%5B%5D=.sol&show-deleted-files=false&show-viewed-files=true)).
 
-Original files from the `Convex` protocol are linked in the `platform` submodule.
+Contracts that are core to the system and flow of user funds remain in the `convex-platform` subdirectory, with the contracts in `aura-contracts-lite` being either peripheral (`AuraClaimZap`, `AuraStakingProxy`, `AuraVestedEscrow`, `CrvDepositorWrapper`, `ExtraRewardsDistributor`), Aura Specific (`Aura`, `AuraMinter`) or those that required bigger changes (in the case of `AuraLocker`).
 
-### Getting Started
+original convex code -> new aura versions
+  - `convex-platform/contracts/contracts/Cvx.sol` -> `contracts/Aura.sol`
+  - `convex-platform/contracts/contracts/ClaimZap.sol` -> `contracts/AuraClaimZap.sol`
+  - `convex-platform/contracts/contracts/CvxLocker.sol` -> `contracts/AuraLocker.sol`
+  - `convex-platform/contracts/contracts/interfaces/BoringMath.sol` -> `contracts/AuraMath.sol`
+  - `convex-platform/contracts/contracts/CvxStakingProxy.sol` -> `contracts/AuraStakingProxy.sol`
+  - `convex-platform/contracts/contracts/VestedEscrow.sol` -> `contracts/AuraVestedEscrow.sol`
+  - `convex-platform/contracts/contracts/vlCvxExtraRewardDistribution.sol` -> `contracts/ExtraRewardsDistributor.sol`
+
+### Repo setup
 
 ```
 yarn
@@ -14,27 +23,3 @@ git submodule init
 git submodule update
 ```
 
-### Run the diff
-
-Because some of the files have been renamed with the Aura prefix we can't just share a git link to the diff.
-We wrote a smol server to generate the diffs for the convex:aura files as well as the changes we made to the original
-convex files. You can run this server with.
-
-```
-yarn diff:server
-```
-
-And then go to `localhost:3000`. The diff output ignores changes to comments and just shows the code diff.
-
-### Files in the diff
-
--   original convex code -> aura changes
-    -   `platform/contracts/contracts` -> `convex-platform/contracts/contracts`
--   original convex code -> new aura versions
-    -   `contracts/Aura.sol` -> `convex-platform/contracts/contracts/Cvx.sol`
-    -   `contracts/AuraClaimZap.sol` -> `convex-platform/contracts/contracts/ClaimZap.sol`
-    -   `contracts/AuraLocker.sol` -> `convex-platform/contracts/contracts/CvxLocker.sol`
-    -   `contracts/AuraMath.sol` -> `convex-platform/contracts/contracts/interfaces/BoringMath.sol`
-    -   `contracts/AuraStakingProxy.sol` -> `convex-platform/contracts/contracts/CvxStakingProxy.sol`
-    -   `contracts/AuraVestedEscrow.sol` -> `convex-platform/contracts/contracts/VestedEscrow.sol`
-    -   `contracts/ExtraRewardsDistributor.sol` -> `convex-platform/contracts/contracts/vlCvxExtraRewardDistribution.sol`
